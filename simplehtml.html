@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS - HTML TAGS</title>
+    <!-- <link rel="stylesheet" href="final.css"> -->
+<style>
+/* ===============================
+   GLOBAL / RESET STYLES
+================================ */
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    padding: 20px;
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h2 {
+    margin-top: 30px;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 18px;
+    background: #ddd;
+    color: #000;
+}
+
+
+/* ===============================
+   CSS BOX MODEL
+================================ */
+.box {
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    border: 5px solid black;
+    margin: 8px 0;
+    background-color: lightblue;
+    text-align: center;
+    line-height: 100px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: #000;
+}
+
+.box:hover {
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+
+/* ===============================
+   CSS GRID VIEW
+================================ */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    gap: 15px;
+    padding: 20px;
+}
+
+.grid-item {
+    background-color: lightblue;
+    padding: 30px;
+    text-align: center;
+    font-size: 20px;
+    border: 2px solid black;
+    color: #000;
+}
+
+.grid-item:hover {
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+
+/* ===============================
+   CSS LIST
+================================ */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+}
+
+li {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: lightblue;
+    border: 1px solid black;
+    text-align: center;
+    color: #000;
+}
+
+li:hover {
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+
+/* ===============================
+   CARD CREATION
+================================ */
+.card {
+    width: 250px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-align: center;
+    color: #000;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin: 15px 0 10px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.card button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #139e41;
+}
+
+
+/* ===============================
+   DROPDOWN MENU
+================================ */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #333;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* ===============================
+   WEBSITE LAYOUT
+================================ */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+nav {
+    background-color: #555;
+    padding: 10px;
+}
+
+main {
+    display: flex;
+    padding: 20px;
+    background: #fff;
+    color: #000;
+}
+
+section {
+    flex: 1;
+    padding-right: 20px;
+}
+
+aside {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* ===============================
+   CSS LOADER
+================================ */
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #007bff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* ===============================
+   PAGINATION
+================================ */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    background: #fff;
+    margin: 2px;
+}
+
+.pagination a:hover,
+.pagination a.active {
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+
+/* ===============================
+   FLEXBOX
+================================ */
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.flex-item {
+    background-color: lightblue;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    color: #000;
+}
+
+.flex-item:hover {
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+
+/* ===============================
+   CSS CONTAINER
+================================ */
+.container {
+    max-width: 150px;
+    margin: auto;
+}
+</style>
+</head>
+
+
+<body>
+
+    <h2>1. Box Model</h2>
+    <div class="box">BOX MODEL</div>
+
+    <h2>2. CSS Grid View</h2>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+    </div>
+
+    <h2>3. CSS List</h2>
+    <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Services</li>
+        <li>Contact</li>
+    </ul>
+
+    <h2>4. Card Creation</h2>
+    <div class="card">
+        <img src="https://as1.ftcdn.net/jpg/15/58/61/94/1000_F_1558619493_LEj1DptfbVcKfGYNCiCDhOpoaZheTj9M.jpg" alt="Image">
+        <h3>Card Title</h3>
+        <p>This is a simple card created using HTML and CSS.</p>
+        <button>Read More</button>
+    </div>
+
+    <h2>5. Dropdown Menu (CSS Only)</h2>
+    <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+
+    <h2>6. Website Layout & Skeleton</h2>
+    <header>
+        <h1>Website Header</h1>
+    </header>
+
+    <nav>Navigation Menu</nav>
+
+    <main>
+        <section>
+            <h2>Main Content</h2>
+            <p>This is the content area.</p>
+        </section>
+
+        <aside>
+            <h2>Sidebar</h2>
+            <p>This is the sidebar.</p>
+        </aside>
+    </main>
+
+    <footer>Website Footer</footer>
+
+    <h2>7. CSS Loader</h2>
+    <div class="loader"></div>
+
+    <h2>8. CSS Pagination</h2>
+    <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">&raquo;</a>
+    </div>
+
+    <h2>9. CSS Flexbox</h2>
+    <div class="flex-container">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+    </div>
+
+    <h2>10. CSS Container</h2>
+    <div class="container">
+        <div class="box">Content 1</div>
+        <div class="box">Content 2</div>
+        <div class="box">Content 3</div>
+    </div>
+
+</body>
+</html>

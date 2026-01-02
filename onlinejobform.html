@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OJAS - Online Job Application System</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Minimal inline styles for structural layout based on the image */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- COLOR CHANGE HERE --- */
+        .section-header {
+            background-color: #318CE7; /* Changed to Blue */
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 5px solid #318CE7; /* Changed border color */
+        }
+
+        .nav-2 {
+            background-color: #318CE7; /* Changed to Blue */
+            color: white;
+            padding: 5px 15px;
+            font-weight: bold;
+        }
+        
+        /* Keep header background for internal sections a lighter color */
+        .personaldetail-header,
+        .CommunicationDetails-header {
+            background-color: #E6F3FF; /* Very light blue */
+            padding: 10px;
+            margin: -15px -15px 10px -15px;
+            font-weight: bold;
+        }
+        /* -------------------------- */
+
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            flex-basis: 30%;
+            padding: 5px;
+        }
+
+        .form-group-full {
+            width: 100%;
+            padding: 5px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: small;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 3px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .asterisk {
+            color: red;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            gap: 20px;
+            padding-top: 5px;
+        }
+
+        .note {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            font-size: 0.9em;
+        }
+
+        .button-group {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn-submit {
+            background-color: green;
+            color: white;
+        }
+
+        /* Adjustments for existing structure based on the image */
+        .header-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .verticalline {
+            border-left: 1px solid #ccc;
+            height: 80px;
+            margin: 0 15px;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+            background-color: #555;
+        }
+
+        .nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+        }
+
+
+        /* Combined section styles to simplify */
+        .personaldetail,
+        .CommunicationDetails,
+        .OtherDetails,
+        .ExperienceDetails,
+        .LanguageDetails,
+        .Uploads {
+            padding: 15px;
+            border: 1px solid #ddd;
+            margin-top: 15px;
+        }
+
+
+        /* Communication Details Layout */
+        .CommunicationDetailsForm {
+            display: flex;
+            gap: 30px;
+        }
+
+        .part1,
+        .part2 {
+            flex: 1;
+        }
+
+        .CommunicationDetailsFormInput {
+            margin-bottom: 10px;
+        }
+
+        /* Other Details Layout */
+        .part3, .part5, .part7 {
+            flex-basis: 30%;
+        }
+        .part4, .part6, .part8 {
+            flex-basis: 70%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: flex-start;
+        }
+        .part4input, .part8input {
+            flex-basis: 45%; /* To show two inputs per line */
+        }
+        .checkboxes {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-title">
+                <img src="https://www.psgtech.edu/ncc/images/symbols/embleml.png" alt="Emblem" height="100px" style="max-height: 80px;">
+                <div class="verticalline"></div>
+                <div>
+                    <h1>ONLINE JOB APPLLICATION SYSTEM</h1>
+                    <h4>Government of Gujarat</h4>
+                </div>
+            </div>
+            <div class="ojas-logo">
+                <img src="https://ojasconverter.com/images/favicon.png" alt="OJAS Logo" height="80px" style="max-height: 60px;">
+            </div>
+        </header>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Registration</a></li>
+                <li><a href="#">Online Application</a></li>
+                <li><a href="#">Upload</a></li>
+                <li><a href="#">Fees</a></li>
+                <li><a href="#">Call Letter / preference</a></li>
+                <li><a href="#">Other Apllication</a></li>
+            </ul>
+            <div class="nav-2">Registration</div>
+        </nav>
+
+        <div class="note">
+            <div class="notes" style="font-weight: bold;">Note:</div>
+            <div class="-notes">
+                <p>- Special Characters are not allowed (e.g., `<` `>` `"` `'` `(` `)` `&` `+` `-` `;` `!` `,` `.` `-` `*` etc.).</p>
+                <p>- <span class="asterisk">*</span> indicates mandatory fields.</p>
+                <p>- Please select correct values from drop-down box/combo box. If the data is incorrect, the system will not allow registration.</p>
+            </div>
+        </div>
+
+        <div class="personaldetail">
+            <div class="personaldetail-header"><span style="font-size: 20px;">Personal Details </span> &nbsp; (ઉમેદવરાની માહીતી)</div>
+            <form action="#" class="personalform">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <select name="title" id="title">
+                            <option value="Mr">Mr.</option>
+                            <option value="Mrs">Mrs.</option>
+                            <option value="Ms">Ms.</option>
+                            <option value="Dr">Dr.</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Surname <span class="asterisk">*</span></label>
+                        <input type="text" id="surname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">First Name<span class="asterisk">*</span></label>
+                        <input type="text" id="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fatherHusbandName">Father/Husband Name</label>
+                        <input type="text" id="fatherHusbandName">
+                    </div>
+                    <div class="form-group">
+                        <label for="motherName">Mother's name<span class="asterisk">*</span></label>
+                        <input type="text" id="motherName" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Gender<span class="asterisk">*</span></label>
+                        <div class="radio-group">
+                            <input type="radio" name="gender" id="gender-m" value="M"><label for="gender-m">Male</label>
+                            <input type="radio" name="gender" id="gender-f" value="F"><label for="gender-f">Female</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Reselect Gender<span class="asterisk">*</span></label>
+                        <div class="radio-group">
+                            <input type="radio" name="reselect-gender" id="re-gender-m" value="M"><label for="re-gender-m">Male</label>
+                            <input type="radio" name="reselect-gender" id="re-gender-f" value="F"><label for="re-gender-f">Female</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of birth<span class="asterisk">*</span></label>
+                        <input type="date" id="dob" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Martial Status<span class="asterisk">*</span></label>
+                        <div class="radio-group">
+                            <input type="radio" name="martialstatus" id="married" value="M"><label for="married">Married</label>
+                            <input type="radio" name="martialstatus" id="unmarried" value="U"><label for="unmarried">Unmarried</label>
+                            <input type="radio" name="martialstatus" id="separated" value="S"><label for="separated">Seperated</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category<span class="asterisk">*</span></label>
+                        <select name="category" id="category" required>
+                            <option value="">Select</option>
+                            <option value="General">General</option>
+                            <option value="General(EWS)">General(EWS)</option>
+                            <option value="SC">SC</option>
+                            <option value="ST">ST</option>
+                            <option value="SEBC">SEBC</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="CommunicationDetails">
+            <div class="CommunicationDetails-header"><span style="font-size: 20px;">Communication Details</span>&nbsp; ( સંદેશા વ્યવહારની વિગતો )</div>
+            <div class="CommunicationDetailsForm">
+                <div class="part1">
+                    <div class="CommunicationDetailsFormInput">
+                        <label for="presentAddress">Present Address<span class="asterisk">*</span></label>
+                        <textarea name="presentAddress" id="presentAddress" rows="4" required></textarea>
+                    </div>
+                    <div class="CommunicationDetailsFormInput">
+                        <label for="presentState">State<span class="asterisk">*</span></label>
+                        <select name="presentState" id="presentState">
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="CommunicationDetailsFormInput">
+                        <label for="presentDistrict">District<span class="asterisk">*</span></label>
+                        <select name="presentDistrict" id="presentDistrict" required>
+                            <option value="">Select</option>
+                            </select>
+                    </div>
+                    <div class="CommunicationDetailsFormInput">
+                        <label for="presentTaluka">Taluka<span class="asterisk">*</span></label>
+                        <select name="presentTaluka" id="presentTaluka" required>
+                            <option value="">Select</option>
+                            </select>
+                    </div>
+                    <div class="CommunicationDetailsFormInput">
+                        <label for="presentPincode">Pincode<span class="asterisk">*</span></label>
+                        <input type="text" id="presentPincode" maxlength="6" minlength="6" required>
+                    </div>
+                    <div class="CommunicationDetailsFormInput">
+                        <label for="mobileNumber">Mobile Number<span class="asterisk">*</span></label>
+                        <input type="text" id="mobileNumber" maxlength="10" minlength="10" required>
+                    </div>
+                    <div class="CommunicationDetailsFormInput">
+                        <label for="reTypeMobileNumber">Re-Type Mobile Number<span class="asterisk">*</span></label>
+                        <input type="text" id="reTypeMobileNumber" maxlength="10" minlength="10" required>
+                    </div>
+                    <div class="CommunicationDetailsFormInput">
+                        <label for="nationality">Nationality<span class="asterisk">*</span></label>
+                        <input type="text" id="nationality" value="Indian" readonly>
+                    </div>
+                </div>
+                <div class="part2">
+                    <div class="CommunicationDetailsFormInput">
+                        <label for="permanentAddress">Permanent Address<span class="asterisk">*</span></label>
+                        <textarea name="permanentAddress" id="permanentAddress" rows="4" required></textarea>
+                        <div style="font-size: 0.8em; margin-top: 5px;">
+                            <input type="checkbox" id="sameAsPresent"> <label for="sameAsPresent" style="display: inline;">Same as Present Address</label>
+                        </div>
+                    </div>
+                    <div class="CommunicationDetailsFormInput">
+                        <label for="permanentState">State<span class="asterisk">*</span></label>
+                        <select name="permanentState" id="permanentState">
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="CommunicationDetailsFormInput">
+                        <label for="permanentDistrict">District<span class="asterisk">*</span></label>
+                        <select name="permanentDistrict" id="permanentDistrict" required>
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                    <div class="CommunicationDetailsFormInput">
+                        <label for="permanentTaluka">Taluka<span class="asterisk">*</span></label>
+                        <select name="permanentTaluka" id="permanentTaluka" required>
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                    <div class="CommunicationDetailsFormInput">
+                        <label for="permanentPincode">Pincode<span class="asterisk">*</span></label>
+                        <input type="text" id="permanentPincode" maxlength="6" minlength="6" required>
+                    </div>
+                    <div class="CommunicationDetailsFormInput">
+                        <label for="email">Email<span class="asterisk">*</span></label>
+                        <input type="text" id="email" required>
+                    </div>
+                    <div class="CommunicationDetailsFormInput">
+                        <label for="reTypeEmail">Re-Type Email<span class="asterisk">*</span></label>
+                        <input type="text" id="reTypeEmail" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="OtherDetails">
+            <div class="CommunicationDetails-header"><span style="font-size: 20px;">Other Details</span>&nbsp; ( અન્ય વિગતો )</div>
+            <form action="#">
+
+                <div class="form-row">
+                    <div class="part3">
+                        <p style="margin: 0 0 5px 0;">શુ તમે રમતગમત ના વધારના ગુણ મેલાવા લયકાત ધારાવો છો?<span class="asterisk">*</span></p>
+                        <div class="radio-group">
+                            <input type="radio" name="sport-eligible" id="sport-yes" value="Y"><label for="sport-yes">Yes</label>
+                            <input type="radio" name="sport-eligible" id="sport-no" value="N" checked><label for="sport-no">No</label>
+                        </div>
+                    </div>
+                    <div class="part4">
+                        <div class="part4input">
+                            <label for="sportName">Name Of Sports</label>
+                            <select name="sportName" id="sportName" disabled>
+                                <option value="">Select</option>
+                            </select>
+                        </div>
+                        <div class="part4input">
+                            <label for="sportLevel">Sport Level</label>
+                            <select name="sportLevel" id="sportLevel" disabled>
+                                <option value="">Select</option>
+                            </select>
+                        </div>
+                        <div class="part4input">
+                            <label for="sportYear">Year</label>
+                            <input type="text" id="sportYear" disabled>
+                        </div>
+                        <div class="part4input">
+                            <label for="sportOrganizer">Organizer</label>
+                            <input type="text" id="sportOrganizer" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="margin: 15px 0;">
+
+                <div class="form-row">
+                    <div class="part3">
+                        <p style="margin: 0 0 5px 0; font-weight: bold;">Physically Challenged</p>
+                        <p style="margin: 0; font-size: 0.9em;">(As per Published Advertisement Percentage)</p>
+                        <div class="radio-group" style="margin-top: 10px;">
+                            <input type="radio" name="phc-status" id="phc-yes" value="Y"><label for="phc-yes">Yes</label>
+                            <input type="radio" name="phc-status" id="phc-no" value="N" checked><label for="phc-no">No</label>
+                        </div>
+                    </div>
+                    <div class="part6" style="flex-direction: column; align-items: flex-start;">
+                        <div class="checkboxes">
+                            <input type="checkbox" id="blindness" name="phc-type" value="B"><label for="blindness">Blindness</label>
+                            <input type="checkbox" id="deafDumb" name="phc-type" value="DD"><label for="deafDumb">Deaf & Dumb</label>
+                            <input type="checkbox" id="notApplicable" name="phc-type" value="NA"><label for="notApplicable">Not Applicable</label>
+                        </div>
+                        <div class="checkboxes">
+                            <input type="checkbox" id="lowVision" name="phc-type" value="LV"><label for="lowVision">Low Vision</label>
+                            <input type="checkbox" id="hearingHandicap" name="phc-type" value="HH"><label for="hearingHandicap">Hearing handicap</label>
+                            <input type="checkbox" id="orthopedics" name="phc-type" value="O"><label for="orthopedics">Orthopedics (OA, OL, BL, OAL)</label>
+                        </div>
+                        <div class="checkboxes">
+                            <input type="checkbox" id="otherPhc" name="phc-type" value="OT"><label for="otherPhc">Other</label>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="margin: 15px 0;">
+
+                <div class="form-row">
+                    <div class="part7">
+                        <p style="margin: 0 0 5px 0;">Are you an Ex-Serviceman?<span class="asterisk">*</span></p>
+                        <div class="radio-group">
+                            <input type="radio" name="ex-serviceman" id="ex-service-yes" value="Y"><label for="ex-service-yes">Yes</label>
+                            <input type="radio" name="ex-serviceman" id="ex-service-no" value="N" checked><label for="ex-service-no">No</label>
+                        </div>
+                    </div>
+                    <div class="part8">
+                        <div class="part8input">
+                            <label for="govt-employee">Are you working in State Government / Panchayat / Government Board / Corporation?<span class="asterisk">*</span></label>
+                            <div class="radio-group">
+                                <input type="radio" name="govt-employee-status" id="govt-yes" value="Y"><label for="govt-yes">Yes</label>
+                                <input type="radio" name="govt-employee-status" id="govt-no" value="N" checked><label for="govt-no">No</label>
+                            </div>
+                        </div>
+                        <div class="part8input">
+                            <label for="govt-service-years">Length of Service in Govt. (Years)</label>
+                            <input type="text" id="govt-service-years" disabled>
+                        </div>
+                        <div class="part8input">
+                            <label for="office-name">Name of Department / Office</label>
+                            <input type="text" id="office-name" disabled>
+                        </div>
+                        <div class="part8input">
+                            <label for="join-date">Joining Date</label>
+                            <input type="date" id="join-date" disabled>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="ExperienceDetails">
+            <div class="CommunicationDetails-header"><span style="font-size: 20px;">Experience Details</span>&nbsp; ( અનુભવની વિગતો )</div>
+            <p style="font-size: 0.9em; margin: 5px 0;">Please enter your experience details starting from the latest job.</p>
+            <div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 10px;">
+                <div class="form-row">
+                    <div class="form-group-full" style="flex-basis: 30%;">
+                        <label for="currentJobStatus">Currently working on Govt./Semi Govt./Board/Corporation Job</label>
+                        <div class="radio-group">
+                            <input type="radio" name="currentJobStatus" id="job-yes" value="Y"><label for="job-yes">Yes</label>
+                            <input type="radio" name="currentJobStatus" id="job-no" value="N" checked><label for="job-no">No</label>
+                        </div>
+                    </div>
+                    <div class="form-group" style="flex-basis: 30%;">
+                        <label for="officeNameExp">Name of Dept. / Organization</label>
+                        <input type="text" id="officeNameExp">
+                    </div>
+                    <div class="form-group" style="flex-basis: 30%;">
+                        <label for="postNameExp">Name of Post</label>
+                        <input type="text" id="postNameExp">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group" style="flex-basis: 30%;">
+                        <label for="expFrom">From Date</label>
+                        <input type="date" id="expFrom">
+                    </div>
+                    <div class="form-group" style="flex-basis: 30%;">
+                        <label for="expTo">To Date</label>
+                        <input type="date" id="expTo">
+                    </div>
+                    <div class="form-group" style="flex-basis: 30%;">
+                        <label for="expTotal">Total Year / Month / Day</label>
+                        <input type="text" id="expTotal" value="Calculated/Auto-filled" readonly>
+                    </div>
+                </div>
+                <div style="text-align: right;">
+                    <button type="button" class="btn" style="background-color: #ddd;">Add More Experience</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="LanguageDetails">
+            <div class="CommunicationDetails-header"><span style="font-size: 20px;">Language Proficiency</span>&nbsp; ( ભાષા નું જ્ઞાન )</div>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                <thead>
+                    <tr style="background-color: #f0f0f0;">
+                        <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Language</th>
+                        <th style="border: 1px solid #ccc; padding: 8px;">Read</th>
+                        <th style="border: 1px solid #ccc; padding: 8px;">Write</th>
+                        <th style="border: 1px solid #ccc; padding: 8px;">Speak</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #ccc; padding: 8px;">Hindi</td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;"><input type="checkbox" name="hindi-read" value="Y"></td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;"><input type="checkbox" name="hindi-write" value="Y"></td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;"><input type="checkbox" name="hindi-speak" value="Y"></td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ccc; padding: 8px;">English</td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;"><input type="checkbox" name="english-read" value="Y"></td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;"><input type="checkbox" name="english-write" value="Y"></td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;"><input type="checkbox" name="english-speak" value="Y"></td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ccc; padding: 8px;">Gujarati</td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;"><input type="checkbox" name="gujarati-read" value="Y"></td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;"><input type="checkbox" name="gujarati-write" value="Y"></td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;"><input type="checkbox" name="gujarati-speak" value="Y"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note" style="margin-top: 10px;">
+                <p>Note: Kindly tick applicable check box. If the user doesn't know any language, kindly un-tick all check boxes of the respective language.</p>
+                <p>Selection of one language is mandatory for registration.</p>
+            </div>
+        </div>
+
+        <div class="Uploads">
+            <div class="CommunicationDetails-header"><span style="font-size: 20px;">Uploads</span>&nbsp; ( ફોટો અને સહી અપલોડ કરો )</div>
+            <div style="display: flex; gap: 30px; margin-top: 15px;">
+                <div style="flex: 1; border: 1px solid #ccc; padding: 10px;">
+                    <p style="font-weight: bold;">Photo Upload</p>
+                    <p style="font-size: 0.9em; color: #555;">Note: Quality of Photograph should be Good Enough to be Verifiable and Acceptable. The file must be a **JPG** file, with a size limit of **15 KB** and dimensions of **3.5cm x 4.5cm**.</p>
+                    <input type="file" name="photoUpload" id="photoUpload">
+                    <button type="button" class="btn" style="background-color: #007bff; color: white; margin-top: 10px;">Upload Photo</button>
+                    <div style="margin-top: 10px; border: 1px solid black; height: 100px; width: 80px; text-align: center; line-height: 100px;">
+                        [Photo Preview]
+                    </div>
+                </div>
+                <div style="flex: 1; border: 1px solid #ccc; padding: 10px;">
+                    <p style="font-weight: bold;">Signature Upload</p>
+                    <p style="font-size: 0.9em; color: #555;">નોંધ: અરજી માં સહી ની છબી ફરજીયાત છે. ફાઈલ નો પ્રકાર **JPG** હોવો જોઈએ, અને માપ **15 KB** અને પરિમાણ **2.5cm x 7.5cm** હોવા જોઈએ.</p>
+                    <input type="file" name="signatureUpload" id="signatureUpload">
+                    <button type="button" class="btn" style="background-color: #007bff; color: white; margin-top: 10px;">Upload Signature</button>
+                    <div style="margin-top: 10px; border: 1px solid black; height: 40px; width: 150px; text-align: center; line-height: 40px;">
+                        [Signature Preview]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header" style="background-color: #f2f2f2; color: black; margin-top: 15px;">Declaration</div>
+        <div style="border: 1px solid #ddd; padding: 15px;">
+            <p style="font-weight: bold;">હું અરજી પત્રક માં આપેલ તમામ માહિતી ની સત્યતા ની ખાતરી આપું છુ.</p>
+            <p style="font-size: 0.9em;">I hereby declare that all the information furnished above is true and correct to the best of my knowledge and belief, and I have read and understood the advertisement's terms and conditions.</p>
+            <div style="margin-top: 10px;">
+                <input type="checkbox" id="declaration" required>
+                <label for="declaration" style="display: inline; font-weight: normal;"><span class="asterisk">*</span>I Agree</label>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <input type="text" placeholder="Enter Captcha: JP6R7S" style="width: 200px; display: inline-block; margin-right: 15px; border: 2px solid #ccc; text-align: center; font-size: 1.2em;" value="JP6R7S">
+            <button type="submit" class="btn btn-submit">Save</button>
+        </div>
+
+        <p style="text-align: center; margin-top: 20px; font-size: 0.8em; color: #666;">Note: After filling the form, please click on the **Save** button to get the confirmation number, which will be required for the final submission of the application.</p>
+    </div>
+</body>
+
+</html>

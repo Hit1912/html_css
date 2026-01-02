@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced CSS – Designed</title>
+
+<style>
+/* ===================== GLOBAL ===================== */
+*{
+    box-sizing:border-box;
+}
+body{
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:#f4f6f8;
+    margin:0;
+    padding:30px;
+}
+h2{
+    margin-top:0;
+    color:#333;
+}
+section{
+    background:#fff;
+    padding:25px;
+    margin-bottom:40px;
+    border-radius:12px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.08);
+}
+
+/* ===================== COMMON BOX ===================== */
+.box{
+    width:120px;
+    height:120px;
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:600;
+    border-radius:10px;
+    margin:10px;
+}
+
+/* ===================== 1 Hover Rotate ===================== */
+.rotate-hover{
+    transition:transform .6s;
+}
+.rotate-hover:hover{
+    transform:rotate(180deg);
+}
+
+/* ===================== 2 Flex vs Grid ===================== */
+.flex-container{
+    display:flex;
+    gap:15px;
+}
+.grid-container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+/* ===================== 3 Justify Content ===================== */
+.flex-demo{
+    display:flex;
+    height:140px;
+    border:2px dashed #ddd;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+/* ===================== 4 Text Stroke ===================== */
+.stroke-text{
+    font-size:48px;
+    font-weight:800;
+    color:transparent;
+    -webkit-text-stroke:2px #ff4d4d;
+    text-align:center;
+}
+
+/* ===================== 5 Columns ===================== */
+.columns-auto{column-width:200px;}
+.columns-count{column-count:3;}
+.columns-width{column-width:150px;}
+
+/* ===================== 6 Hyphens ===================== */
+.hyphen-auto{hyphens:auto;}
+.hyphen-manual{hyphens:manual;}
+.hyphen-none{hyphens:none;}
+
+/* ===================== 7 Transform Origin ===================== */
+.origin-box{
+    transform-origin:left bottom;
+    animation:originRotate 2s infinite linear;
+}
+@keyframes originRotate{
+    to{transform:rotate(360deg);}
+}
+
+/* ===================== 8 Transforms ===================== */
+
+.box{
+  width:120px;
+  height:120px;
+  background:#3498db;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:15px;
+  transition:0.5s;
+}
+
+/* 1. Translate */
+.translate:hover{
+  transform: translate(50px, 20px);
+}
+
+/* 2. Rotate */
+.rotate:hover{
+  transform: rotate(45deg);
+}
+
+/* 3. Scale */
+.scale:hover{
+  transform: scale(1.5);
+}
+
+/* 4. SkewX */
+.skewx:hover{
+  transform: skewX(30deg);
+}
+
+/* 5. SkewY */
+.skewy:hover{
+  transform: skewY(30deg);
+}
+
+/* 6. Skew (X + Y) */
+.skew:hover{
+  transform: skew(20deg, 15deg);
+}
+
+/* 7. Matrix */
+.matrix:hover{
+  transform: matrix(1, 0.3, 0.3, 1, 40, 20);
+}
+
+/* ===================== 9 3D Rotation ===================== */
+.cube{
+    width:120px;
+    height:120px;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    border-radius:12px;
+    animation:rotate3d 3s infinite linear;
+}
+@keyframes rotate3d{
+    to{transform:rotateX(360deg) rotateY(360deg);}
+}
+
+/* ===================== 10 Transition ===================== */
+.transition-box{
+    transition:background .6s, transform .6s;
+}
+.transition-box:hover{
+    background:#2ecc71;
+    transform:scale(1.3);
+}
+
+/* ===================== 11 Move & Rotate ===================== */
+.move-box{
+    position:relative;
+    animation:moveRotate 4s infinite alternate ease-in-out;
+}
+@keyframes moveRotate{
+    from{left:0;transform:rotate(0deg);}
+    to{left:300px;transform:rotate(360deg);}
+}
+
+/* ===================== 12 z-index ===================== */
+.z-container{
+    position:relative;
+    height:160px;
+}
+.z1{
+    position:absolute;
+    background:#e74c3c;
+    z-index:1;
+}
+.z2{
+    position:absolute;
+    left:50px;
+    top:40px;
+    background:#3498db;
+    z-index:2;
+}
+
+/* ===================== 13 Units ===================== */
+.units p:nth-child(1){font-size:20px;}
+.units p:nth-child(2){font-size:1.5em;}
+.units p:nth-child(3){font-size:1.5rem;}
+.units p:nth-child(4){font-size:10mm;}
+.units p:nth-child(5){font-size:0.3in;}
+.units p:nth-child(6){font-size:15pt;}
+.units p:nth-child(7){font-size:1cm;}
+
+/* ===================== 14 Products ===================== */
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+.product{
+    padding:20px;
+    border-radius:12px;
+    background:#fafafa;
+    text-align:center;
+    font-weight:600;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+@media(max-width:992px){
+    .products{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:576px){
+    .products{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<section>
+<h2>1. Rotate Div on Hover</h2>
+<div class="box rotate-hover">Hover</div>
+</section>
+
+<section>
+<h2>2. Flex vs Grid</h2>
+<div class="flex-container">
+    <div class="box">Flex 1</div>
+    <div class="box">Flex 2</div>
+    <div class="box">Flex 3</div>
+</div>
+<br>
+<div class="grid-container">
+    <div class="box">Grid 1</div>
+    <div class="box">Grid 2</div>
+    <div class="box">Grid 3</div>
+</div>
+</section>
+
+<section>
+<h2>3. justify-content</h2>
+<div class="flex-demo" style="justify-content:flex-start"><div class="box">Start</div></div>
+<div class="flex-demo" style="justify-content:center"><div class="box">Center</div></div>
+<div class="flex-demo" style="justify-content:flex-end"><div class="box">End</div></div>
+<div class="flex-demo" style="justify-content:space-between"><div class="box"></div><div class="box"></div></div>
+<div class="flex-demo" style="justify-content:space-around"><div class="box"></div><div class="box"></div></div>
+<div class="flex-demo" style="justify-content:space-evenly"><div class="box"></div><div class="box"></div></div>
+</section>
+
+<section>
+<h2>4. Text Stroke</h2>
+<p class="stroke-text">Text Stroke</p>
+</section>
+
+<section>
+<h2>5. CSS Columns</h2>
+<p class="columns-auto">Auto column example repeated for demo.</p>
+<p class="columns-count">Column count example repeated for demo.</p>
+<p class="columns-width">Column width example repeated for demo.</p>
+</section>
+
+<section>
+<h2>6. CSS Hyphens</h2>
+<p class="hyphen-none">Extraordinarylongwordexamplewithoutbreak</p>
+<p class="hyphen-manual">Extra&shy;ordinary&shy;long&shy;word</p>
+<p class="hyphen-auto">Extraordinarylongwordexamplewithautohyphen</p>
+</section>
+
+<section>
+<h2>7. Transform Origin</h2>
+<div class="box origin-box">Origin</div>
+</section>
+
+<section>
+<h2>8. CSS Transforms</h2>
+
+<section>
+<h3>1. Translate</h3>
+<div class="box translate">Translate</div>
+</section>
+
+<section>
+<h3>2. Rotate</h3>
+<div class="box rotate">Rotate</div>
+</section>
+
+<section>
+<h3>3. Scale</h3>
+<div class="box scale">Scale</div>
+</section>
+
+<section>
+<h3>4. SkewX</h3>
+<div class="box skewx">SkewX</div>
+</section>
+
+<section>
+<h3>5. SkewY</h3>
+<div class="box skewy">SkewY</div>
+</section>
+
+<section>
+<h3>6. Skew (X & Y)</h3>
+<div class="box skew">Skew</div>
+</section>
+
+<section>
+<h3>7. Matrix</h3>
+<div class="box matrix">Matrix</div>
+</section>
+
+<section>
+<h2>9. 3D Rotation</h2>
+<div class="cube"></div>
+</section>
+
+<section>
+<h2>10. CSS Transition</h2>
+<div class="box transition-box">Hover</div>
+</section>
+
+<section>
+<h2>11. Move & Rotate</h2>
+<div class="box move-box">Move</div>
+</section>
+
+<section>
+<h2>12. z-index</h2>
+<div class="z-container">
+    <div class="box z1">z-1</div>
+    <div class="box z2">z-2</div>
+</div>
+</section>
+
+<section>
+<h2>13. Font Units</h2>
+<div class="units">
+<p>px</p><p>em</p><p>rem</p><p>mm</p><p>in</p><p>pt</p><p>cm</p>
+</div>
+</section>
+
+<section>
+<h2>14. Responsive Product Section</h2>
+<div class="products">
+    <div class="product">Product 1</div>
+    <div class="product">Product 2</div>
+    <div class="product">Product 3</div>
+    <div class="product">Product 4</div>
+</div>
+</section>
+
+</body>
+</html>
